@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './userSlice'
+import moviesReducer from './moviewSlice'
 
 const appStore = configureStore({
     reducer: {
         // Add the reducers here with any key name this key name will be used to access the state in the components
-        user: userReducer
+        user: userReducer,
+        movies: moviesReducer
     }
 })
 
