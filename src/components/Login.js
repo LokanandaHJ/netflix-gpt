@@ -25,6 +25,17 @@ const Login = () => {
     const nameRef = useRef(null);
 
     // Handler to toggle between sign up and sign in
+    // State to store validation errors
+    const [validationError, setValidationError] = useState(null);
+    // State to store authentication errors
+    const [autheniacationError, setAutheniacationError] = useState(null);
+
+    // References to input fields
+    const emailRef = useRef(null);
+    const passwordRef = useRef(null);
+    const nameRef = useRef(null);
+
+    // Handler to toggle between sign up and sign in
     const signUpHandler = () => {
         setSignUp(!signUp);
     };
@@ -96,59 +107,113 @@ const Login = () => {
             <form onSubmit={(e) => { e.preventDefault() }} className="absolute p-8 w-3/12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-90 cursor-pointer">
                 <h1 className="font-bold text-3xl p-2">
                     {signUp ? "Sign Up" : "Sign In"}
-                </h1>
-                {signUp && (
-                    <input
-                        ref={nameRef}
-                        type="text"
-                        placeholder="User name"
-                        className="p-3 my-4 w-full bg-gray-700"
-                        autoComplete="on"
-                    />
-                )}
-                <input
-                    type="text"
-                    ref={emailRef}
-                    placeholder="Email or Phone number"
-                    className="p-3 my-4 w-full bg-gray-700"
-                    autoComplete="on"
-                />
-                <input
-                    type="password"
-                    ref={passwordRef}
-                    placeholder="Password"
-                    className="p-3 my-4 w-full bg-gray-700"
-                    autoComplete="on"
-                />
-                <button className="bg-red-600 p-3 my-6 w-full rounded-lg" onClick={submitHandler}>
-                    {signUp ? "Sign Up" : "Sign In"}
-                </button>
-                {signUp ? (
-                    <p className="text-center">
-                        Already have an account?{" "}
-                        <span
-                            onClick={signUpHandler}
-                            className="text-blue-500 cursor-pointer"
-                        >
-                            Sign In Now
-                        </span>
-                    </p>
-                ) : (
-                    <p className="text-center">
-                        New to Netflix?{" "}
-                        <span
-                            onClick={signUpHandler}
-                            className="text-blue-500 cursor-pointer"
-                        >
-                            Sign Up Now
-                        </span>
-                    </p>
-                )}
-                {validationError && <p className="text-red-500 text-center">{validationError}</p>}
-                {autheniacationError && <p className="text-red-500 text-center">{autheniacationError}</p>}
-            </form>
-        </div>
-    );
+                    <form onSubmit={(e) => { e.preventDefault() }} className="absolute p-8 w-3/12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-90 cursor-pointer">
+                        <h1 className="font-bold text-3xl p-2">
+                            {signUp ? "Sign Up" : "Sign In"}
+                        </h1>
+                        {signUp && (
+                            <input
+                                ref={nameRef}
+                                type="text"
+                                placeholder="User name"
+                                className="p-3 my-4 w-full bg-gray-700"
+                                autoComplete="on"
+                            />
+                        )}
+                        <input
+                            type="text"
+                            ref={emailRef}
+                            placeholder="Email or Phone number"
+                            className="p-3 my-4 w-full bg-gray-700"
+                            autoComplete="on"
+                        />
+                        <input
+                            type="password"
+                            ref={passwordRef}
+                            placeholder="Password"
+                            className="p-3 my-4 w-full bg-gray-700"
+                            autoComplete="on"
+                        />
+                        <button className="bg-red-600 p-3 my-6 w-full rounded-lg" onClick={submitHandler}>
+                            {signUp ? "Sign Up" : "Sign In"}
+                        </button>
+                        {signUp ? (
+                            <p className="text-center">
+                                Already have an account?{" "}
+                                <span
+                                    onClick={signUpHandler}
+                                    className="text-blue-500 cursor-pointer"
+                                >
+                                    Sign In Now
+                                </span>
+                            </p>
+                        ) : (
+                            <p className="text-center">
+                                New to Netflix?{" "}
+                                <span
+                                    onClick={signUpHandler}
+                                    className="text-blue-500 cursor-pointer"
+                                >
+                                    Sign Up Now
+                                </span>
+                            </p>
+                        )}
+                        {validationError && <p className="text-red-500 text-center">{validationError}</p>}
+                        {autheniacationError && <p className="text-red-500 text-center">{autheniacationError}</p>}
+                        {signUp && (
+                            <input
+                                ref={nameRef}
+                                type="text"
+                                placeholder="User name"
+                                className="p-3 my-4 w-full bg-gray-700"
+                                autoComplete="on"
+                            />
+                        )}
+                        <input
+                            type="text"
+                            ref={emailRef}
+                            placeholder="Email or Phone number"
+                            className="p-3 my-4 w-full bg-gray-700"
+                            autoComplete="on"
+                        />
+                        <input
+                            type="password"
+                            ref={passwordRef}
+                            placeholder="Password"
+                            className="p-3 my-4 w-full bg-gray-700"
+                            autoComplete="on"
+                        />
+                        <button className="bg-red-600 p-3 my-6 w-full rounded-lg" onClick={submitHandler}>
+                            {signUp ? "Sign Up" : "Sign In"}
+                        </button>
+                        {signUp ? (
+                            <p className="text-center">
+                                Already have an account?{" "}
+                                <span
+                                    onClick={signUpHandler}
+                                    className="text-blue-500 cursor-pointer"
+                                >
+                                    Sign In Now
+                                </span>
+                            </p>
+                        ) : (
+                            <p className="text-center">
+                                New to Netflix?{" "}
+                                <span
+                                    onClick={signUpHandler}
+                                    className="text-blue-500 cursor-pointer"
+                                >
+                                    Sign Up Now
+                                </span>
+                            </p>
+                        )}
+                        {validationError && <p className="text-red-500 text-center">{validationError}</p>}
+                        {autheniacationError && <p className="text-red-500 text-center">{autheniacationError}</p>}
+                    </form>
+                </div>
+                );
+};
+                );
 };
 
-export default Login;
+                export default Login;

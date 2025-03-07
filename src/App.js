@@ -9,6 +9,9 @@ function App() {
       <Provider store={appStore}>
         <Body />
       </Provider>
+      <Provider store={appStore}>
+        <Body />
+      </Provider>
     </div >
   );
 }
